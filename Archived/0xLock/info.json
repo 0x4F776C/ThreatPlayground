@@ -1,0 +1,13 @@
+{
+    "name": "0xLock",
+    "category": "Ransomware",
+    "description": "Ransomware that traverses directories, exfiltrate files to FTP server, and encrypts files",
+    "references": [
+        "https://attack.mitre.org/techniques/T1486/",
+        "https://attack.mitre.org/techniques/T1048/",
+        "https://attack.mitre.org/techniques/T1048/003/",
+        "https://attack.mitre.org/techniques/T1059/",
+        "https://attack.mitre.org/techniques/T1083/",
+        "https://attack.mitre.org/techniques/T1032/"
+    ]
+}

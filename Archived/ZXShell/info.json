@@ -1,0 +1,10 @@
+{
+  "name": "ZXShell",
+  "category": "Backdoor",
+  "description": "A backdoor that can launch port scans, run a keylogger, capture screenshots, set up an HTTP or SOCKS proxy, launch a reverse command shell, cause SYN floods, and transfer/delete/run files.",
+  "references": [
+    "https://www.f-secure.com/v-descs/backdoor-w32-zxshell-a.shtml"
+  ]
+}
+
+

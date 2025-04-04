@@ -1,0 +1,8 @@
+{
+  "name": "Ransomware (XOR)",
+  "category": "Ransomware",
+  "description": "A simple XOR-based ransomware that uses the SHA256 hash of itself (executable) as the encryption key.",
+  "references": [
+    "NIL"
+  ]
+}

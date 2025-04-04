@@ -1,0 +1,8 @@
+{
+  "name": "Domain Generation Algorithm - Basic",
+  "category": "DGA",
+  "description": "Generates new domain for C2 callback based on random/pre-planned trigger.",
+  "references": [
+    "NIL"
+  ]
+}

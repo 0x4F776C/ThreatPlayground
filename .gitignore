@@ -1,0 +1,8 @@
+# All instances of decryptor files
+**/*decryptor*
+
+# All pem files
+**/*.pem
+
+# Misc
+/.vscode

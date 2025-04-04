@@ -1,0 +1,8 @@
+{
+  "name": "Cachedump",
+  "category": "Post-Exploitation Tool",
+  "description": "A brief description of Cachedump",
+  "references": [
+    "https://example.com/reference"
+  ]
+}

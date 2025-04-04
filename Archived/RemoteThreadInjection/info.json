@@ -1,0 +1,8 @@
+{
+  "name": "RemoteThreadInjection",
+  "category": "Process Injection",
+  "description": "A brief description of RemoteThreadInjection",
+  "references": [
+    "https://example.com/reference"
+  ]
+}

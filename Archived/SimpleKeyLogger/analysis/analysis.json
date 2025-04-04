@@ -1,0 +1,100 @@
+{
+    "steps": [
+        {
+            "title": "Initial Static Analysis",
+            "description": "Performed initial static analysis of the Python keylogger using various tools.",
+            "codeBlocks": [
+                {
+                    "title": "File Hash Analysis",
+                    "language": "bash",
+                    "content": "$ sha256sum keylogger.py\n8f2e8b927e9382616cd7345c7947c96e9a2c371819e43466c1ff2054eb2e4d62\n\n$ md5sum keylogger.py\n2a7c52d88b4c2bb4b7a3fb4c454c2563",
+                    "explanation": "Generated file hashes for malware identification and tracking"
+                },
+                {
+                    "title": "String Analysis",
+                    "language": "bash",
+                    "content": "$ strings keylogger.py | grep -i 'system'\nsystem32.tmp\nSYSTEMROOT",
+                    "explanation": "Extracted strings revealing system-related operations"
+                }
+            ],
+            "output": "Found suspicious strings and system path references indicating potential system tampering"
+        },
+        {
+            "title": "Code Deobfuscation",
+            "description": "Analyzed the base64 encoding mechanism used to hide logged keystrokes",
+            "codeBlocks": [
+                {
+                    "title": "Encoding Function",
+                    "language": "python",
+                    "content": "def decode_logs(encoded_data):\n    import base64\n    return base64.b64decode(encoded_data).decode()",
+                    "explanation": "Created decoder function to analyze logged data"
+                },
+                {
+                    "title": "Sample Log Decoding",
+                    "language": "python",
+                    "content": "# Example of decoding captured logs\nwith open('system32.tmp', 'r') as f:\n    encoded_log = f.read().strip()\n    decoded_log = decode_logs(encoded_log)\nprint(decoded_log)",
+                    "explanation": "Script to decode captured keylog data"
+                }
+            ],
+            "output": "2024-02-24 10:15:23 - Key: t (Code: 20)\n2024-02-24 10:15:24 - Key: e (Code: 18)\n2024-02-24 10:15:25 - Key: s (Code: 31)\n2024-02-24 10:15:26 - Key: t (Code: 20)"
+        }
+    ],
+    "reverseEngineering": {
+        "tools": [
+            {
+                "name": "IDA Pro Free",
+                "purpose": "Static analysis and disassembly of compiled version"
+            },
+            {
+                "name": "Process Monitor",
+                "purpose": "Runtime behavior analysis and file system operations monitoring"
+            },
+            {
+                "name": "Python decompiler (uncompyle6)",
+                "purpose": "Decompilation of Python bytecode"
+            }
+        ],
+        "steps": [
+            {
+                "title": "Analyzing Persistence Mechanism",
+                "description": "Examined the persistence mechanism through system directory symlink creation",
+                "codeBlocks": [
+                    {
+                        "title": "Decompiled Persistence Code",
+                        "language": "python",
+                        "content": "# Original obfuscated bytecode decompiled\ntry:\n    if not os.path.exists(os.path.join(os.environ['SYSTEMROOT'], 'system32.tmp')):\n        os.symlink(current_path, os.path.join(os.environ['SYSTEMROOT'], 'system32.tmp'))\nexcept:\n    pass",
+                        "explanation": "Decompiled code showing persistence attempt through Windows system directory"
+                    }
+                ],
+                "findings": [
+                    "Attempts to create symlink in System32 directory",
+                    "Falls back silently if permission denied",
+                    "Uses try-except to avoid crashes on permission errors"
+                ]
+            },
+            {
+                "title": "Keyboard Hook Analysis",
+                "description": "Analyzed the keyboard monitoring implementation",
+                "codeBlocks": [
+                    {
+                        "title": "Hook Installation",
+                        "language": "python",
+                        "content": "def start(self):\n    try:\n        keyboard.on_press(self._on_key_press)\n        while self.running:\n            time.sleep(60)\n            self._save_logs()\n    except KeyboardInterrupt:\n        self.stop()",
+                        "explanation": "Core keyboard monitoring functionality"
+                    },
+                    {
+                        "title": "Assembly View (Compiled Version)",
+                        "language": "nasm",
+                        "content": "loc_140001000:\n    push    rbp\n    mov     rbp, rsp\n    sub     rsp, 32\n    lea     rcx, KeyboardCallback\n    call    RegisterKeyboardHook\n    test    eax, eax\n    jz      short loc_140001030",
+                        "explanation": "Assembly code showing keyboard hook installation in compiled version"
+                    }
+                ],
+                "findings": [
+                    "Uses Python 'keyboard' module for hook installation",
+                    "Hooks persist until explicitly removed",
+                    "No anti-debugging checks present"
+                ]
+            }
+        ]
+    }
+}

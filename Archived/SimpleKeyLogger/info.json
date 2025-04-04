@@ -1,0 +1,10 @@
+{
+    "name": "SimpleKeylogger",
+    "category": "Keylogger",
+    "description": "A basic Python-based keylogger that demonstrates common malware techniques including keyboard monitoring, file operations, and basic stealth capabilities. Created for educational purposes.",
+    "references": [
+        "https://attack.mitre.org/techniques/T1056/001/",
+        "https://attack.mitre.org/techniques/T1113/",
+        "https://attack.mitre.org/techniques/T1070/001/"
+    ]
+}
