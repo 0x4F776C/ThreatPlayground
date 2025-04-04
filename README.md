@@ -32,20 +32,21 @@ The repository includes examples of various techniques, configurations, etc:
 
 ```
 ThreatPlayground/
-├── SimpleKeyLogger/
-│   ├── info.md
-│   ├── code/
-│   │   ├── keylogger.h
-│   │   └── keylogger.c
-│   └── analysis/
-│       ├── reverse-engineering.md
-│       └── malware-analysis.md
-├── LDAP Server - Windows/
-│   ├── info.md
-│   ├── steps/
-│   │   └── steps.md
-│   └── configuration-files/
-│       └── configuration-files.md
+├── Malware/
+│   └── SimpleKeylogger/
+│       ├── info.md
+│       ├── code/
+│       │   ├── keylogger.h
+│       │   └── keylogger.c
+│       └── analysis/
+│           ├── reverse-engineering.md
+│           └── malware-analysis.md
+├── Infrastructure/
+│       ├── info.md
+│       ├── steps/
+│       │   └── steps.md
+│       └── configuration-files/
+│           └── configuration-files.md
 └── README.md
 ```
 
