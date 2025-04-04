@@ -8,6 +8,8 @@
 ## Overview
 This guide walks through setting up a secure LDAP server on Windows Server 2019/2022.
 
+Category: Windows-Server
+
 ## Prerequisites
 - Windows Server 2019/2022 installed
 - Administrator privileges
