@@ -1,4 +1,6 @@
-<!-- display-subdirectories: true -->
+<!--
+display-subdirectories: true
+-->
 
 # ThreatPlayground
 
