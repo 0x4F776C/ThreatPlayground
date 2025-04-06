@@ -2,6 +2,8 @@
 
 This repository contains a collection of malware code samples, lab configurations, and analysis techniques for **educational, research, and reverse engineering purposes only**.
 
+<!-- display-subdirectories: true -->
+
 ## NOTE TO ALL
 
 This repository will undergo major revamp due to changes made in another project. Please do not fork it under it is completed.
