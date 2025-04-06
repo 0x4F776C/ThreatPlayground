@@ -1,8 +1,8 @@
+<!-- display-subdirectories: true -->
+
 # ThreatPlayground
 
 This repository contains a collection of malware code samples, lab configurations, and analysis techniques for **educational, research, and reverse engineering purposes only**.
-
-<!-- display-subdirectories: true -->
 
 ## NOTE TO ALL
 
